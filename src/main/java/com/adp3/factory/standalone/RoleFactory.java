@@ -16,7 +16,7 @@ public class RoleFactory {
     //private RoleFactory(){
     //}
 
-    public static Role buildRoleService(int time_In, int time_Out, String empID){
+    public static Role buildRoleService(String empID){
 
         String roleId = GenericHelper.generateID();
         return new Role.Builder()

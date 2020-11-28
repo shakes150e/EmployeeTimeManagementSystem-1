@@ -29,6 +29,10 @@ public class Role implements Serializable {
 
     }
 
+//    public static Role buildRoleService(String s) {
+//        return null;
+//    }
+
     public String getRoleID() {
         return roleID;
     }
@@ -43,6 +47,14 @@ public class Role implements Serializable {
                 "roleID=" + roleID +
                 ", roleDesc=" + roleDesc +
                 '}';
+    }
+
+    public long getEmpID() {
+        return 0;
+    }
+
+    public double getempID() {
+        return 0;
     }
 
     public static class Builder {
@@ -86,6 +98,10 @@ public class Role implements Serializable {
         @Override
         public int hashCode() {
             return Objects.hash(roleID, roleDesc);
+        }
+
+        public Builder setEmployee_id(String s) {
+            return null;
         }
     }
 }

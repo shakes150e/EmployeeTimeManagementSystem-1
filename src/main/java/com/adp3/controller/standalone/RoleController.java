@@ -21,31 +21,32 @@ import java.util.Set;
 @RequestMapping("/role")
 public class RoleController {
     @Autowired
-    private RoleServiceImp roleService;
+    private RoleService roleService;
 
-    @PostMapping("/create")
-    public Role create(@RequestBody Role role) {
-        Role newRole = RoleFactory.createRole(role.getRoleDesc());
-        return roleService.create (newRole );
+    @GetMapping("/create")
+    public Role create(@RequestBody Role Role) {
+        Role role = RoleFactory.buildRoleService(Role.getRoleID());
+        return roleService.create (role );
     }
 
-    @GetMapping("/read/{roleID}")
-    public Role read(@PathVariable String roleID) {
-        return roleService.read(roleID);
+    @GetMapping("/read/{ID}")
+    public Role read(@PathVariable String ID) {
+        return roleService.read(ID);
     }
 
-    @PutMapping ("/update")
+    @PostMapping ("/update")
     public Role update(@RequestBody Role role) {
         return roleService.update(role);
     }
 
     @GetMapping("/all")
-    public Set<Role> getAll() { return roleService.getAll();
+    public Set<Role> getAll() {
+        return roleService.getAll();
     }
 
-    @DeleteMapping ("/delete/{roleID}")
-    public void delete(@PathVariable String roleID) {
-        roleService.delete(roleID);
+    @DeleteMapping ("/delete/{ID}")
+    public void delete(@PathVariable String ID) {
+        roleService.delete(ID);
     }
 
 

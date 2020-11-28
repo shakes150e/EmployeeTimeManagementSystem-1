@@ -2,6 +2,7 @@ package com.adp3.factory.standalone;
 
 
 import com.adp3.entity.standalone.Role;
+import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.util.GenericHelper;
 
 /*Sanele Ngwenya
@@ -15,12 +16,12 @@ public class RoleFactory {
     //private RoleFactory(){
     //}
 
-    public static Role createRole(String roleDesc){
+    public static Role buildRoleService(int time_In, int time_Out, String empID){
 
         String roleId = GenericHelper.generateID();
         return new Role.Builder()
                 .setRoleID(roleId)
-                .setRoleDesc(roleDesc)
+                .setRoleDesc(empID)
                 .build();
 
 
